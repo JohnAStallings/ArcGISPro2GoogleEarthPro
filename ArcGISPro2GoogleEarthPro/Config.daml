@@ -1,0 +1,44 @@
+﻿<ArcGIS defaultAssembly="ArcGISPro2GoogleEarthPro.dll" defaultNamespace="ArcGISPro2GoogleEarthPro" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
+  <AddInInfo id="{b11a26f5-bcfb-4602-bfaf-8162b6b727a6}" version="1.0" desktopVersion="3.4.55405" product="ArcGISPro">
+    <Name>ArcGISPro2GoogleEarthPro</Name>
+    <Description>ArcGIS Pro to Google Earth Pro referencing. This tool allows for a similiar view to be seen in near realtime in Google Earth Pro as what is seen in ArcGIS Pro.</Description>
+    <Image>Images\Compass32.png</Image>
+    <Author>JohnAStallings</Author>
+    <Company>Kyper GIS, LLC.</Company>
+    <Date>5/6/2025 7:51:23 AM</Date>
+    <Subject>Google Earth Mirror</Subject>
+    <!-- Note subject can be one or more of these topics:
+                    Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
+  </AddInInfo>
+  <modules>
+    <insertModule id="ArcGISPro2GoogleEarthPro_Module" className="Module1" autoLoad="false" caption="Module1">
+      <!-- uncomment to have the control hosted on a separate tab-->
+      <tabs>
+        <!--<tab id="ArcGISPro2GoogleEarthPro_Tab1" caption="New Tab">
+          <group refID="ArcGISPro2GoogleEarthPro"/>
+        </tab>-->
+      </tabs>
+      <groups>
+        <!-- comment this out if you have no controls on the Addin tab to avoid
+              an empty group-->
+        <group id="ArcGISPro2GoogleEarthPro" caption="AGP 2 GEP" appearsOnAddInTab="true">
+          <!-- host controls within groups -->
+          <button refID="ArcGISPro2GoogleEarthPro_ButtonAGP2GEP" size="large" />
+        </group>
+      </groups>
+      <controls>
+        <!-- add your controls here -->
+        <button id="ArcGISPro2GoogleEarthPro_ButtonAGP2GEP" caption="Arc 2 Earth" className="ButtonAGP2GEP" loadOnClick="true" smallImage="Images\Arc2Earth16.png" largeImage="Images\Arc2Earth32.png">
+          <tooltip heading="Tooltip Heading">Tooltip text<disabledText /></tooltip>
+        </button>
+        
+      </controls>
+      <dockPanes>
+        <dockPane id="ArcGISPro2GoogleEarthPro_ToolViewer" caption="Tool Viewer" className="ToolViewerViewModel" dock="group" dockWith="esri_core_projectDockPane" image="Images\Compass16.png">
+          <content className="ToolViewerView" />
+        </dockPane>
+      </dockPanes>
+      <menus></menus>
+    </insertModule>
+  </modules>
+</ArcGIS>

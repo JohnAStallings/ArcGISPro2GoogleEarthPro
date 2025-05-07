@@ -1,0 +1,112 @@
+﻿<Window x:Class="ArcGISPro2GoogleEarthPro.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About ArcGIS Pro 2 Earth"
+        Height="650" Width="450"
+        WindowStartupLocation="CenterScreen"
+        Background="White">
+
+    <Grid Margin="20">
+        <!-- Define Grid Rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Title -->
+            <RowDefinition Height="Auto"/>
+            <!-- Tool Description -->
+            <RowDefinition Height="Auto"/>
+            <!-- Legal Disclaimer -->
+            <RowDefinition Height="Auto"/>
+            <!-- Company Info -->
+            <RowDefinition Height="Auto"/>
+            <!-- Logo -->
+            <RowDefinition Height="Auto"/>
+            <!-- Close Button -->
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Text="ArcGIS Pro 2 Google Earth Pro - Public Release"
+                   FontSize="18" FontWeight="Bold"
+                   Foreground="DarkSlateGray"
+                   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,10"
+                   Grid.Row="0"/>
+
+        <!-- Tool Description -->
+        <Border BorderBrush="LightGray" BorderThickness="1" Padding="10" Grid.Row="1">
+            <TextBlock Text="This tool provides seamless integration between ArcGIS Pro and Google Earth Pro."
+                       FontSize="14" TextWrapping="Wrap"
+                       Foreground="Black"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- Legal Disclaimer -->
+        <Border BorderBrush="DarkRed" BorderThickness="1" Padding="10" Grid.Row="2" Margin="0,10,0,10">
+            <TextBlock Text="This software is provided 'as-is', without warranty of any kind, express or implied. Use at your own risk. Kyper GIS, LLC and the developers are not responsible for any issues, damages, or errors resulting from its use."
+                       FontSize="12" TextWrapping="Wrap"
+                       Foreground="DarkRed"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- Company Info -->
+        <Border BorderBrush="LightGray" BorderThickness="1" Padding="10" Grid.Row="3" Margin="0,10,0,10">
+            <TextBlock Text="KYPER is a team of analyst professionals who can speak to all aspects of DOT Class Location and H/MCA studies, implement our Clients' interpretations in the application of regulatory code to their own pipeline systems, and advise on precedents and interpretations with integrity and conservative logic to ensure Client Operators stay in compliance with state and federal safety standards."
+                       FontSize="14" TextWrapping="Wrap"
+                       Foreground="Black"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <StackPanel Grid.Row="4" HorizontalAlignment="Center" Margin="0,20,0,20">
+            <!-- Website Hyperlink -->
+            <TextBlock FontSize="14" Foreground="Blue" TextDecorations="Underline" Cursor="Hand"
+               MouseLeftButtonUp="OpenWebsite">
+        <Run Text="Visit Kyper GIS LLC Website"/>
+            </TextBlock>
+
+            <!-- Email Hyperlink -->
+            <TextBlock FontSize="14" Foreground="Blue" TextDecorations="Underline" Cursor="Hand" Margin="0,10,0,0"
+               MouseLeftButtonUp="SendEmail">
+        <Run Text="Contact Regulatory Group"/>
+            </TextBlock>
+        </StackPanel>
+
+        <!-- Close Button -->
+        <Button Content="Close"
+                Width="100" Height="35"
+                HorizontalAlignment="Center" Grid.Row="5" Margin="0,20,0,10"
+                Background="DarkSlateGray"
+                Foreground="White"
+                FontSize="14"
+                FontWeight="Bold"
+                Cursor="Hand"
+                Click="CloseButton_Click">
+
+            <!-- Rounded Corners via ControlTemplate -->
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+            <!-- Hover & Press Effects -->
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="SlateGray"/>
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="2"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="LightGray"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>
